@@ -26,3 +26,10 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    - name: Print Dot Net Version
+      uses: mathiasvr/command-output@v1
+      id: console
+      with:
+        run: dotnet --version
+
+    - run: echo Today is ${{ steps.console.outputs.stdout }}  
